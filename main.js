@@ -30,13 +30,7 @@ function insertText(text) {
                 } else if (40<=indeks ) {
                        itog = 'ожирение третей степени';
                     } 
-    
-    itog = 'Ваш вес: ' + m + ' кг.'  + ' Ваш рост: ' + h + ' см.' +  ' У Вас ' + itog + '!';
+    itog = 'Ваш вес: ' + m + ' кг.' + '\n' + 'Ваш рост: ' + h + ' см.' + '\n' +  'У Вас ' + itog + '!';
     insertText(itog);
-
-    
-    
-    
   });
- 
 }
