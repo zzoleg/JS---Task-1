@@ -2,8 +2,12 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init () {
   var calcButton = document.querySelector('#calc');
-  
+
+function insertText(text) {
+  document.getElementById("textarea").innerHTML = text;
+}
   calcButton.addEventListener ('click', function(event) {
+    event.preventDefault();
     var massaElem = document.querySelector('#massa');
     var m = massaElem.value;
     var heightElem = document.querySelector('#height');
@@ -13,37 +17,24 @@ function init () {
 
     if (indeks < 16) {
       var itog = 'дифицит веса';
-    } else {
-      if (16 <= indeks && indeks < 18.5) {
-        var itog = 'недостаток веса';
-      } else {
-        if (18.5 <= indeks && indeks < 25) {
-          var itog = 'нормальный вес';
-        }
-          else {
-            if (25 <= indeks && indeks < 30) {
-              var itog = 'избыток веса';
-            } else {
-              if (30 <= indeks && indeks < 35) {
-                var itog = 'ожирение первой степени';
-              } else {
-                if (35 <= indeks && indeks < 40) {
-                  var itog = 'ожирение второй степени';
-                } else {
-                  {
-                    if (40<=indeks ) {
-                      var itog = 'ожирение третей степени';
+    } else if (indeks < 18.5) {
+         itog = 'недостаток веса';
+      } else if (indeks < 25) {
+           itog = 'нормальный вес';
+        } else if (indeks < 30) {
+               itog = 'избыток веса';
+            } else if (indeks < 35) {
+                 itog = 'ожирение первой степени';
+              } else if (indeks < 40) {
+                   itog = 'ожирение второй степени';
+                } else if (40<=indeks ) {
+                       itog = 'ожирение третей степени';
                     } 
-                  }}}}}}}
-
-    function insertText(text) {
-      document.getElementById("textarea").innerHTML = text;
-    }
-        
-    itog = 'Ваш вес: ' + m + ' кг'  + 'Ваш рост: ' + h + ' см' +  'У Вас ' + itog;
+    
+    itog = 'Ваш вес: ' + m + ' кг.'  + ' Ваш рост: ' + h + ' см.' +  ' У Вас ' + itog + '!';
     insertText(itog);
 
-    event.preventDefault();
+    
     
     
   });
